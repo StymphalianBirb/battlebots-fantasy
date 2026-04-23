@@ -81,6 +81,46 @@
             overflow-y: auto;
         }
 
+        .boxes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            height: 100%;
+        }
+
+        .info-box {
+            background-color: #0f0f0f;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .info-box h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #e0e0e0;
+        }
+
+        .info-box h4 {
+            margin: 0;
+            font-size: 14px;
+            color: #a0a0a0;
+            font-weight: normal;
+        }
+
+        .info-box p {
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+            width: 50%;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
         .text-box {
             width: 100%;
             height: 100%;
@@ -135,10 +175,30 @@
     </div>
 
     <div class="text-container">
-        <!-- You can type directly into this box in the browser, or replace the content in the HTML -->
-        <div id="textBox" class="text-box">
-            <!-- Edit the text for each group inside the script section below -->
-            Group A text goes here.
+        <div class="boxes-grid">
+            <div class="info-box">
+                <h2 id="box1-title">Title 1</h2>
+                <h4 id="box1-subheader">Subheader 1</h4>
+                <p id="box1-body">Body text 1</p>
+            </div>
+
+            <div class="info-box">
+                <h2 id="box2-title">Title 2</h2>
+                <h4 id="box2-subheader">Subheader 2</h4>
+                <p id="box2-body">Body text 2</p>
+            </div>
+
+            <div class="info-box">
+                <h2 id="box3-title">Title 3</h2>
+                <h4 id="box3-subheader">Subheader 3</h4>
+                <p id="box3-body">Body text 3</p>
+            </div>
+
+            <div class="info-box">
+                <h2 id="box4-title">Title 4</h2>
+                <h4 id="box4-subheader">Subheader 4</h4>
+                <p id="box4-body">Body text 4</p>
+            </div>
         </div>
     </div>
 </div>
@@ -149,31 +209,69 @@
     // You can use normal text or HTML (e.g., <br>, <b>, lists)
     // =====================================================
 
-    const groupTexts = {
-        a: `Manta
-$60		Eggbeater Drum (Vertical Spinner)
-A newcomer to Battlebots, but a 2 time champion of Robogames which is a similar competition with weaker opposition. Probably the most hyped-up rookie in the history of the show.
-Skorpios
-$40		Hammer-Saw
-A consistently mid bot. Dominant against horizontal spinners, has a tanky design with a weak weapon.
-Valkyrie
-$30		Undercutter	(Horizontal Spinner)
-A bot that spontaneously shows a lot of potential, but has achieved very little. Its weapon is incredibly powerful and it can be a very scary opponent - just as long as that spinner is actually working.
-Terrortops
-$10		Lifter and Vertical Disk Spinner
-Terrortops is owned by a family team, while they have shown that they can consistently beat low-tier opponents, they are yet to prove they can beat teams they’re about to face in Group A. Their general strategy is to lift up their opposition, to hit their underside with the vertical spinner.
-`,
-        b: `Group B text goes here.`,
-        c: `Group C text goes here.`,
-        d: `Group D text goes here.`,
-        e: `Group E text goes here.`,
-        f: `Group F text goes here.`
+    // =====================================================
+    // EDIT YOUR GROUP CONTENT HERE
+    // Each group has 4 boxes: title, subheader, body
+    // =====================================================
+
+    const groupContent = {
+        a: [
+            { title: "Manta", subheader: "$60 - Eggbeater Drum", body: "A newcomer to Battlebots, but a 2 time champion of Robogames which is a similar competition with weaker opposition. Probably the most hyped-up rookie in the history of the show." },
+            { title: "Skorpios", subheader: "$40 - Hammer Saw", body: "A consistently mid bot. Dominant against horizontal spinners, has a tanky design with a weak weapon." },
+            { title: "Valkyrie", subheader: "$30 - Undercutter", body: "A bot that spontaneously shows a lot of potential, but has achieved very little. Its weapon is incredibly powerful and it can be a very scary opponent - just as long as that spinner is actually working." },
+            { title: "Terrortops", subheader: "$10 - Lifter and Vertical Disk Spinner", body: "Terrortops is owned by a family team, while they have shown that they can consistently beat low-tier opponents, they are yet to prove they can beat teams they’re about to face in Group A. Their general strategy is to lift up their opposition, to hit their underside with the vertical spinner." }
+        ],
+        b: [
+            { title: "B Box 1 Title", subheader: "B Box 1 Subheader", body: "B Box 1 body text." },
+            { title: "B Box 2 Title", subheader: "B Box 2 Subheader", body: "B Box 2 body text." },
+            { title: "B Box 3 Title", subheader: "B Box 3 Subheader", body: "B Box 3 body text." },
+            { title: "B Box 4 Title", subheader: "B Box 4 Subheader", body: "B Box 4 body text." }
+        ],
+        c: [
+            { title: "C Box 1 Title", subheader: "C Box 1 Subheader", body: "C Box 1 body text." },
+            { title: "C Box 2 Title", subheader: "C Box 2 Subheader", body: "C Box 2 body text." },
+            { title: "C Box 3 Title", subheader: "C Box 3 Subheader", body: "C Box 3 body text." },
+            { title: "C Box 4 Title", subheader: "C Box 4 Subheader", body: "C Box 4 body text." }
+        ],
+        d: [
+            { title: "D Box 1 Title", subheader: "D Box 1 Subheader", body: "D Box 1 body text." },
+            { title: "D Box 2 Title", subheader: "D Box 2 Subheader", body: "D Box 2 body text." },
+            { title: "D Box 3 Title", subheader: "D Box 3 Subheader", body: "D Box 3 body text." },
+            { title: "D Box 4 Title", subheader: "D Box 4 Subheader", body: "D Box 4 body text." }
+        ],
+        e: [
+            { title: "E Box 1 Title", subheader: "E Box 1 Subheader", body: "E Box 1 body text." },
+            { title: "E Box 2 Title", subheader: "E Box 2 Subheader", body: "E Box 2 body text." },
+            { title: "E Box 3 Title", subheader: "E Box 3 Subheader", body: "E Box 3 body text." },
+            { title: "E Box 4 Title", subheader: "E Box 4 Subheader", body: "E Box 4 body text." }
+        ],
+        f: [
+            { title: "F Box 1 Title", subheader: "F Box 1 Subheader", body: "F Box 1 body text." },
+            { title: "F Box 2 Title", subheader: "F Box 2 Subheader", body: "F Box 2 body text." },
+            { title: "F Box 3 Title", subheader: "F Box 3 Subheader", body: "F Box 3 body text." },
+            { title: "F Box 4 Title", subheader: "F Box 4 Subheader", body: "F Box 4 body text." }
+        ]
     };
 
     function showGroup(letter, buttonElement) {
         // Change image
         const image = document.getElementById('groupImage');
         image.src = `group${letter}.jpg`;
+
+        // Change box content
+        const boxes = groupContent[letter];
+
+        for (let i = 0; i < 4; i++) {
+            document.getElementById(`box${i+1}-title`).innerText = boxes[i].title;
+            document.getElementById(`box${i+1}-subheader`).innerText = boxes[i].subheader;
+            document.getElementById(`box${i+1}-body`).innerText = boxes[i].body;
+        }
+
+        // Update active button styling
+        const buttons = document.querySelectorAll('header button');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        buttonElement.classList.add('active');
+    }.jpg`;
 
         // Change text
         const textBox = document.getElementById('textBox');
@@ -188,7 +286,7 @@ Terrortops is owned by a family team, while they have shown that they can consis
     // Ensure correct default text on page load
     document.addEventListener('DOMContentLoaded', function () {
         const textBox = document.getElementById('textBox');
-        textBox.innerHTML = groupTexts['a'];
+        showGroup('a', document.querySelector('header button'));
     });
 </script>
 
