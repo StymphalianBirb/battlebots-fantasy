@@ -205,21 +205,16 @@
 
 <script>
     // =====================================================
-    // EDIT YOUR GROUP TEXT HERE
-    // You can use normal text or HTML (e.g., <br>, <b>, lists)
-    // =====================================================
-
-    // =====================================================
     // EDIT YOUR GROUP CONTENT HERE
     // Each group has 4 boxes: title, subheader, body
     // =====================================================
 
     const groupContent = {
         a: [
-            { title: "Manta", subheader: "$60 - Eggbeater Drum", body: "A newcomer to Battlebots, but a 2 time champion of Robogames which is a similar competition with weaker opposition. Probably the most hyped-up rookie in the history of the show." },
-            { title: "Skorpios", subheader: "$40 - Hammer Saw", body: "A consistently mid bot. Dominant against horizontal spinners, has a tanky design with a weak weapon." },
-            { title: "Valkyrie", subheader: "$30 - Undercutter", body: "A bot that spontaneously shows a lot of potential, but has achieved very little. Its weapon is incredibly powerful and it can be a very scary opponent - just as long as that spinner is actually working." },
-            { title: "Terrortops", subheader: "$10 - Lifter and Vertical Disk Spinner", body: "Terrortops is owned by a family team, while they have shown that they can consistently beat low-tier opponents, they are yet to prove they can beat teams they’re about to face in Group A. Their general strategy is to lift up their opposition, to hit their underside with the vertical spinner." }
+            { title: "A Box 1 Title", subheader: "A Box 1 Subheader", body: "A Box 1 body text." },
+            { title: "A Box 2 Title", subheader: "A Box 2 Subheader", body: "A Box 2 body text." },
+            { title: "A Box 3 Title", subheader: "A Box 3 Subheader", body: "A Box 3 body text." },
+            { title: "A Box 4 Title", subheader: "A Box 4 Subheader", body: "A Box 4 body text." }
         ],
         b: [
             { title: "B Box 1 Title", subheader: "B Box 1 Subheader", body: "B Box 1 body text." },
@@ -256,37 +251,32 @@
     function showGroup(letter, buttonElement) {
         // Change image
         const image = document.getElementById('groupImage');
-        image.src = `group${letter}.jpg`;
+        if (image) {
+            image.src = `group${letter}.jpg`;
+        }
 
         // Change box content
         const boxes = groupContent[letter];
-
-        for (let i = 0; i < 4; i++) {
-            document.getElementById(`box${i+1}-title`).innerText = boxes[i].title;
-            document.getElementById(`box${i+1}-subheader`).innerText = boxes[i].subheader;
-            document.getElementById(`box${i+1}-body`).innerText = boxes[i].body;
+        if (boxes) {
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(`box${i+1}-title`).innerText = boxes[i].title;
+                document.getElementById(`box${i+1}-subheader`).innerText = boxes[i].subheader;
+                document.getElementById(`box${i+1}-body`).innerText = boxes[i].body;
+            }
         }
 
         // Update active button styling
-        const buttons = document.querySelectorAll('header button');
-        buttons.forEach(btn => btn.classList.remove('active'));
-        buttonElement.classList.add('active');
-    }.jpg`;
-
-        // Change text
-        const textBox = document.getElementById('textBox');
-        textBox.innerHTML = groupTexts[letter];
-
-        // Update active button styling
-        const buttons = document.querySelectorAll('header button');
-        buttons.forEach(btn => btn.classList.remove('active'));
-        buttonElement.classList.add('active');
+        if (buttonElement) {
+            const buttons = document.querySelectorAll('header button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            buttonElement.classList.add('active');
+        }
     }
 
-    // Ensure correct default text on page load
+    // Initialize default group on page load
     document.addEventListener('DOMContentLoaded', function () {
-        const textBox = document.getElementById('textBox');
-        showGroup('a', document.querySelector('header button'));
+        const firstButton = document.querySelector('header button');
+        showGroup('a', firstButton);
     });
 </script>
 
