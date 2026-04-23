@@ -71,8 +71,8 @@
             object-fit: contain;
 
             /* Feathered edge effect */
-            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-            mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+            mask-image: radial-gradient(circle, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
         }
 
         .text-container {
@@ -136,30 +136,60 @@
 
     <div class="text-container">
         <!-- You can type directly into this box in the browser, or replace the content in the HTML -->
-        <div id="textBox" class="text-box placeholder" contenteditable="true">
-            Enter text for this group here...
+        <div id="textBox" class="text-box">
+            <!-- Edit the text for each group inside the script section below -->
+            Group A text goes here.
         </div>
     </div>
 </div>
 
 <script>
+    // =====================================================
+    // EDIT YOUR GROUP TEXT HERE
+    // You can use normal text or HTML (e.g., <br>, <b>, lists)
+    // =====================================================
+
+    const groupTexts = {
+        a: `Manta
+$60		Eggbeater Drum (Vertical Spinner)
+A newcomer to Battlebots, but a 2 time champion of Robogames which is a similar competition with weaker opposition. Probably the most hyped-up rookie in the history of the show.
+Skorpios
+$40		Hammer-Saw
+A consistently mid bot. Dominant against horizontal spinners, has a tanky design with a weak weapon.
+Valkyrie
+$30		Undercutter	(Horizontal Spinner)
+A bot that spontaneously shows a lot of potential, but has achieved very little. Its weapon is incredibly powerful and it can be a very scary opponent - just as long as that spinner is actually working.
+Terrortops
+$10		Lifter and Vertical Disk Spinner
+Terrortops is owned by a family team, while they have shown that they can consistently beat low-tier opponents, they are yet to prove they can beat teams they’re about to face in Group A. Their general strategy is to lift up their opposition, to hit their underside with the vertical spinner.
+`,
+        b: `Group B text goes here.`,
+        c: `Group C text goes here.`,
+        d: `Group D text goes here.`,
+        e: `Group E text goes here.`,
+        f: `Group F text goes here.`
+    };
+
     function showGroup(letter, buttonElement) {
         // Change image
         const image = document.getElementById('groupImage');
         image.src = `group${letter}.jpg`;
 
+        // Change text
+        const textBox = document.getElementById('textBox');
+        textBox.innerHTML = groupTexts[letter];
+
         // Update active button styling
         const buttons = document.querySelectorAll('header button');
         buttons.forEach(btn => btn.classList.remove('active'));
         buttonElement.classList.add('active');
-
-        // Optional: You can later customize text changes here if desired
-        const textBox = document.getElementById('textBox');
-
-        if (textBox.classList.contains('placeholder')) {
-            textBox.classList.remove('placeholder');
-        }
     }
+
+    // Ensure correct default text on page load
+    document.addEventListener('DOMContentLoaded', function () {
+        const textBox = document.getElementById('textBox');
+        textBox.innerHTML = groupTexts['a'];
+    });
 </script>
 
 </body>
